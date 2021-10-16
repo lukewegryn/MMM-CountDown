@@ -14,7 +14,8 @@ Module.register("MMM-CountDown",{
 	},
 	getScripts: function () {
 		return [
-      			this.file("lib/countdown.min.js")
+      			this.file("lib/countdown.min.js"),
+      			this.file("lib/moment.min.js")
     		];
 	},
 
@@ -32,6 +33,11 @@ Module.register("MMM-CountDown",{
 
 		var timeWrapper = document.createElement("div");
 		var textWrapper = document.createElement("div");
+		var imageWrapper = document.createElement("div");
+		
+		var image = document.createElement("img")
+		image.src = "https://thumbs.dreamstime.com/z/coffee-beans-minimal-vector-pattern-thin-line-seamless-texture-made-outline-bean-icons-coffee-beans-minimal-vector-pattern-108020394.jpg"
+		imageWrapper.appendChild(image)
 
 		textWrapper.className = "align-left week dimmed medium";
 		timeWrapper.className = "time bright xlarge light";
@@ -62,6 +68,7 @@ Module.register("MMM-CountDown",{
 
 		wrapper.appendChild(textWrapper);
 		wrapper.appendChild(timeWrapper);
+		wrapper.appendChild(imageWrapper);
 
 		return wrapper;
 	}
