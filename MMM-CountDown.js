@@ -12,6 +12,11 @@ Module.register("MMM-CountDown",{
 		minutesLabel: 'm',
 		secondsLabel: 's',
 	},
+	getScripts: function () {
+		return [
+      			this.file("lib/countdown.min.js")
+    		];
+	},
 
 	// set update interval
 	start: function() {
@@ -52,7 +57,8 @@ Module.register("MMM-CountDown",{
 		if(this.config.showMinutes == true) mins = diffMinutes + this.config.minutesLabel;
 		if(this.config.showSeconds == true) secs = diffSeconds + this.config.secondsLabel;
 
-		timeWrapper.innerHTML = days + hrs + mins + secs;
+		/*timeWrapper.innerHTML = days + hrs + mins + secs;*/
+		timeWrapper.innerHTML = countdown( new Date("5/17/22"), null, countdown.WEEKS |  countdown.DAYS ).toString();
 
 		wrapper.appendChild(textWrapper);
 		wrapper.appendChild(timeWrapper);
