@@ -31,12 +31,14 @@ Module.register("MMM-CountDown",{
 	getDom: function() {
 		var pregnancy_date_length = {"9":"0.85","10": "1.22", "11": "1.61", "12": "2.13", "13": "2.64", "14": "5.79", "15": "6.57", "16": "7.32", "17": "8.03", "18": "8.74", "19": "9.45", "20": "10.12", "21": "10.79", "22": "11.42", "23": "12.05", "24": "12.68", "25": "13.27", "26": "13.82", "27": "14.41", "28": "14.80", "29": "15.47", "30": "15.95", "31": "16.46", "32": "16.93", "33": "17.36", "34": "17.83", "35": "18.23", "36": "18.62", "37": "19.02", "38": "19.41", "39": "19.72", "40": "20.08", "41": "20.39"}
 		var ppi = 94.34
-		var conception = moment("20210814", "YYYYMMDD")
+		var conception = moment("20210809", "YYYYMMDD")
 		var weeks = moment().diff(conception, 'weeks')
-		var fetal_length = pregnancy_date_length[weeks]
-
-		console.log(weeks)
-
+		var fetal_length = 0.85
+		if (weeks >= 9 && weeks <=41){
+		    fetal_length = pregnancy_date_length[weeks]
+		    //console.log("Oh ya! We've got measurements.")
+		}
+		    
 		var wrapper = document.createElement("div");
 
 		var timeWrapper = document.createElement("div");
